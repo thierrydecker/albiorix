@@ -14,7 +14,6 @@ func Sniffer(snifferContext context.Context, exitSnifferChannel chan string, mes
 	message.message = fmt.Sprintf("Sniffer starting...")
 	message.logLevel = "INFO"
 	messageChannel <- message
-
 	var (
 		device            = "enp0s3"
 		snapshotLen int32 = 1024
@@ -23,7 +22,6 @@ func Sniffer(snifferContext context.Context, exitSnifferChannel chan string, mes
 		timeout     = 100 * time.Millisecond
 		handle      *pcap.Handle
 	)
-
 	handle, err = pcap.OpenLive(device, snapshotLen, promiscuous, timeout)
 	if err != nil {
 		message := LoggingMessage{}
@@ -32,9 +30,7 @@ func Sniffer(snifferContext context.Context, exitSnifferChannel chan string, mes
 		messageChannel <- message
 	}
 	defer handle.Close()
-
 	packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
-
 	for packet := range packetSource.Packets() {
 		if packet != nil {
 			message = LoggingMessage{}
