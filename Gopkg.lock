@@ -2,6 +2,16 @@
 
 
 [[projects]]
+  name = "github.com/google/gopacket"
+  packages = [
+    ".",
+    "layers",
+    "pcap"
+  ]
+  revision = "11c65f1ca9081dfea43b4f9643f5c155583b73ba"
+  version = "v1.1.14"
+
+[[projects]]
   name = "github.com/sirupsen/logrus"
   packages = ["."]
   revision = "d682213848ed68c0a260ca37d6dd5ace8423f5ba"
@@ -25,6 +35,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "9a4df6c2b9cbc7b6a8c1f52444dc0bace4dc5e03a39109d0e2f7956c62319982"
+  inputs-digest = "e9db76409db8881d8595da985cbd516f39b0998568b8cec3173bddcbc008d84c"
   solver-name = "gps-cdcl"
   solver-version = 1
